@@ -1,0 +1,9 @@
+avr-gcc $1 -o code.elf -mmcu=attiny13
+
+avr-objcopy -O ihex code.elf code.rom
+
+avrdude -b19200 -P /dev/ttyUSB1 -p t13 -c avrisp -e -U flash:w:code.rom
+
+rm code.elf
+
+rm code.rom

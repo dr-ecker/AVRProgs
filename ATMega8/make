@@ -1,0 +1,5 @@
+avr-gcc $1 -o prog.elf -mmcu=atmega8
+
+avr-objcopy -O ihex prog.elf prog.rom
+
+avrdude -P /dev/ttyUSB1 -p atmega8 -c avrisp -e -U flash:w:prog.rom -b 19200

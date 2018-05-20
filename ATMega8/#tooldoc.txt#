@@ -1,0 +1,9 @@
+avr-gcc led_blink.c -o led.elf -mmcu=atmega8
+
+#led_blink.c is the c file, led.elf is the intermediary between the code and hex.  No, I dont know what the hex is exactly :B
+
+avr-objcopy -O ihex led.elf led.rom
+
+#Thereœô û your object copy to hex thingus...
+
+avrdude -P /dev/ttyUSB0 -p atmega8 -c avr910 -e -U flash:w:led.rom

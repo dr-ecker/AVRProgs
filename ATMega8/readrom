@@ -1,0 +1,1 @@
+avrdude -P /dev/ttyUSB1 -p atmega8 -c avrisp -e -U hfuse:r:high.bin:b -U lfuse:r:low.bin:b -b 19200
